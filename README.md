@@ -1,2 +1,3 @@
 # GDMessageSounds
-A mod for Geode to have sounds for Geometry Dash Errors, and popups.
+A mod for Geometry Dash to have sounds for <cr>errors,</c> and popups.
+
