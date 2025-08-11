@@ -1,9 +1,6 @@
 {
     "name": "GDMessageSounds",
-    "image": "mcr.microsoft.com/devcontainer/cpp:latest",
-    "features": {
-        "ghcr.io/geode-sdk/dev-container-features/geode-sdk:1": {}
-    },
+    "image": "mcr.microsoft.com/devcontainers/cpp:latest",
     "customizations": {
         "vscode": {
             "extensions": [
@@ -11,5 +8,6 @@
 "geode-sdk.geode-vscode"
             ]
         }
-    }
+    },
+    "postCreateCommand": "bash -c \"curl -sSf https://raw.githubusercontent.com/geode-sdk/cli/main/cli.sh | bash\""
 }
