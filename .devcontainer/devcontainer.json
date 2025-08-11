@@ -1,0 +1,15 @@
+{
+    "name": "GDMessageSounds",
+    "image": "mcr.microsoft.com/devcontainer/cpp:latest",
+    "features": {
+        "ghcr.io/geode-sdk/dev-container-features/geode-sdk:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+
+"geode-sdk.geode-vscode"
+            ]
+        }
+    }
+}
