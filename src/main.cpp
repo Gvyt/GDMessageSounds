@@ -1,12 +1,12 @@
-#include <Geode/modify/FAlertLayer.hpp>
+#include <Geode/modify/FLAlertLayer.hpp>
 #include <Geode/Geode.hpp>
 #include <regex>
 
 using namespace geode::prelude;
 
-class $modify(PopupSoundModHook,FAlertLayer) {
-    bool init(FAlertLayer*self, gd::string title, gd::string message, gd::string button, gd::string button2, bool button2Visible, bool useSmallFont) {
-        if (! FAlertLayer::init(self, title, message, button, button2, button2Visible, useSmallFont)) {
+class $modify(PopupSoundModHook,FLAlertLayer) {
+    bool init(FLAlertLayer*self, gd::string title, gd::string message, gd::string button, gd::string button2, bool button2Visible, bool useSmallFont) {
+        if (! FLAlertLayer::init(self, title, message, button, button2, button2Visible, useSmallFont)) {
             return false;
         }
 
