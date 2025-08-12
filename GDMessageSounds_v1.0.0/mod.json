@@ -1,0 +1,13 @@
+{
+    "id": "GvYoutube.GDMessageSounds",
+    "name": "GDMessageSounds",
+    "version": "1.0.0",
+    "geode": "2.0.0-beta.25",
+    "description": "Adds custom sounds to GD for errors or popups.",
+    "resources": {
+        "file": [
+            "resources/GJ_Popup.ogg",
+            "resources/GJ_Error.ogg"
+        ]
+    }
+}
