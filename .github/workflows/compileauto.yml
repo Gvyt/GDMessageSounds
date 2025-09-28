@@ -1,13 +1,45 @@
-name: Build Geode Mod
+name: Manual Geode CLI Build with Setup
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: geode-sdk/build-geode-mod@main
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 1. Install Rust/Cargo for the Geode CLI
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
         with:
-          # Optional: Specify SDK version (e.g., 'latest' or 'nightly')
-          sdk: latest
+          toolchain: stable
+          profile: minimal
+          override: true
+
+      # 2. Install the Geode CLI (the executable)
+      - name: Install Geode CLI
+        run: cargo install --git https://github.com/geode-sdk/cli
+
+      # 3. Install the Geode SDK (downloads necessary files and should establish a default setup/profile for the build)
+      - name: Install Geode SDK
+        run: geode sdk install
+
+      # 4. Install the Geode SDK Binaries (required for compilation against different platforms)
+      - name: Install Geode SDK Binaries
+        run: geode sdk install-binaries -p win -p mac -p android64
+
+      # 5. Run the Geode build command to create the .geode file
+      - name: Run geode build
+        run: geode build
+
+      # 6. Upload the built mod as an artifact
+      - name: Upload Mod Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Mod-Release-${{ github.sha }}
+          path: build/*.geode 
