@@ -4,7 +4,7 @@
 
 using namespace geode::prelude;
 
-class $modify(PopupSoundModHook,FLAlertLayer) {
+class $modify(GDMesaageSoundsHook,FLAlertLayer) {
     bool init(FLAlertLayer*self, gd::string title, gd::string message, gd::string button, gd::string button2, bool button2Visible, bool useSmallFont) {
         if (! FLAlertLayer::init(self, title, message, button, button2, button2Visible, useSmallFont)) {
             return false;
